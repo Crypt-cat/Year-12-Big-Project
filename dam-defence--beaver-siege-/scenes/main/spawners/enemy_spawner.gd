@@ -27,10 +27,10 @@ func spawn_entity() -> void:
 		spawning_phase_complete.emit()
 		return
 	
-	print_debug(wave_data_array[current_data_index])
+	#print_debug(wave_data_array[current_data_index])
 
 
 func _on_enemy_spawn_timer_timeout() -> void:
-	print_debug("Enemy Spawned! Wooooo : %s" % current_spawn_delay)
+	#print_debug("Enemy Spawned! Wooooo : %s" % current_spawn_delay)
 	spawn_entity()
 	current_data_index += 1
