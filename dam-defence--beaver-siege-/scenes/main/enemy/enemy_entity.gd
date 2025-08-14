@@ -11,7 +11,7 @@ func _ready() -> void:
 	path_array = pathfinding_manager.get_valid_path(global_position / 64, target_pos.position / 64)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	get_path_to_position()
 	move_and_slide()
 
