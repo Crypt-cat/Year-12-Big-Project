@@ -1,7 +1,6 @@
 extends Node
 
 @onready var enemy_spawner = get_parent().get_node("EnemySpawner")
-
 @export var wave_start_delay: float = 3.0
 
 var current_wave: int = 1

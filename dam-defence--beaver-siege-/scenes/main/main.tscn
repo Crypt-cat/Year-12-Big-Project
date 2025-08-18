@@ -150,72 +150,74 @@ zoom = Vector2(4, 4.5)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("7_hujxm")]
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="Paths" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_yyfjg")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D"]
 position = Vector2(303, 72)
 rotation = 3.14159
 loop = false
 script = ExtResource("8_b1x3f")
 
-[node name="EnemyEntity" parent="Path2D/PathFollow2D" instance=ExtResource("5_b1x3f")]
+[node name="EnemyEntity" parent="Paths/Path2D/PathFollow2D" instance=ExtResource("5_b1x3f")]
 position = Vector2(7, -1)
 rotation = -3.14159
 script = null
 
-[node name="Path2D2" type="Path2D" parent="."]
+[node name="Path2D2" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_b1x3f")
 
-[node name="PathFollow2D2" type="PathFollow2D" parent="Path2D2"]
+[node name="PathFollow2D2" type="PathFollow2D" parent="Paths/Path2D2"]
 position = Vector2(303, 56)
 rotation = 3.14159
 loop = false
 script = ExtResource("8_b1x3f")
 
-[node name="EnemyEntity" parent="Path2D2/PathFollow2D2" instance=ExtResource("5_b1x3f")]
+[node name="EnemyEntity" parent="Paths/Path2D2/PathFollow2D2" instance=ExtResource("5_b1x3f")]
 position = Vector2(7, -1)
 rotation = -3.14159
 script = null
 
-[node name="Path2D3" type="Path2D" parent="."]
+[node name="Path2D3" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_a8run")
 
-[node name="PathFollow2D3" type="PathFollow2D" parent="Path2D3"]
+[node name="PathFollow2D3" type="PathFollow2D" parent="Paths/Path2D3"]
 position = Vector2(303, 88)
 rotation = 3.14159
 loop = false
 script = ExtResource("8_b1x3f")
 
-[node name="EnemyEntity" parent="Path2D3/PathFollow2D3" instance=ExtResource("5_b1x3f")]
+[node name="EnemyEntity" parent="Paths/Path2D3/PathFollow2D3" instance=ExtResource("5_b1x3f")]
 position = Vector2(7, -1)
 rotation = -3.14159
 script = null
 
-[node name="Path2D4" type="Path2D" parent="."]
+[node name="Path2D4" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_ouso4")
 
-[node name="PathFollow2D4" type="PathFollow2D" parent="Path2D4"]
+[node name="PathFollow2D4" type="PathFollow2D" parent="Paths/Path2D4"]
 position = Vector2(303, 104)
 rotation = 3.14159
 loop = false
 script = ExtResource("8_b1x3f")
 
-[node name="EnemyEntity" parent="Path2D4/PathFollow2D4" instance=ExtResource("5_b1x3f")]
+[node name="EnemyEntity" parent="Paths/Path2D4/PathFollow2D4" instance=ExtResource("5_b1x3f")]
 position = Vector2(7, -1)
 rotation = -3.14159
 script = null
 
-[node name="Path2D5" type="Path2D" parent="."]
+[node name="Path2D5" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_blune")
 
-[node name="PathFollow2D5" type="PathFollow2D" parent="Path2D5"]
+[node name="PathFollow2D5" type="PathFollow2D" parent="Paths/Path2D5"]
 position = Vector2(303, 40)
 rotation = 3.14159
 loop = false
 script = ExtResource("8_b1x3f")
 
-[node name="EnemyEntity" parent="Path2D5/PathFollow2D5" instance=ExtResource("5_b1x3f")]
+[node name="EnemyEntity" parent="Paths/Path2D5/PathFollow2D5" instance=ExtResource("5_b1x3f")]
 position = Vector2(7, -1)
 rotation = -3.14159
 script = null
