@@ -1,15 +1,15 @@
 [gd_scene load_steps=18 format=4 uid="uid://dwc4qx4lfdgjv"]
 
-[ext_resource type="Script" uid="uid://cwu33ywsgdabt" path="res://scripts/lawn.gd" id="1_xw7ya"]
-[ext_resource type="Texture2D" uid="uid://hhljxsuua52e" path="res://sprites/lwpd_fly.png" id="2_cvafj"]
-[ext_resource type="Script" uid="uid://bwwegfqfihtvy" path="res://scripts/paused.gd" id="3_22hfo"]
-[ext_resource type="Texture2D" uid="uid://ouam6ijtsl5h" path="res://sprites/lwpd_tiles2.png" id="4_pl34n"]
-[ext_resource type="Texture2D" uid="uid://dy02nelf7w0h4" path="res://sprites/square.png" id="5_bku8j"]
-[ext_resource type="Texture2D" uid="uid://f5uxf7haeika" path="res://sprites/lwpd_sunpea.png" id="6_abdi2"]
-[ext_resource type="Texture2D" uid="uid://2novrdyskt0u" path="res://sprites/lwpd_vine.png" id="7_kpahu"]
-[ext_resource type="Texture2D" uid="uid://cg1c8sq5s4mng" path="res://sprites/lwpd_sunleaf.png" id="8_6cedn"]
-[ext_resource type="PackedScene" uid="uid://bv6kjkbxxvryr" path="res://scenes/cooldown_bar.tscn" id="9_wqgse"]
-[ext_resource type="Texture2D" uid="uid://d11m7u11hu3wu" path="res://sprites/lwpd_tiles.png" id="10_5sd7j"]
+[ext_resource type="Script" uid="uid://cwu33ywsgdabt" path="res://scripts/lawn.gd" id="1_g72vm"]
+[ext_resource type="Script" uid="uid://bwwegfqfihtvy" path="res://scripts/paused.gd" id="2_egcmh"]
+[ext_resource type="Texture2D" uid="uid://f5uxf7haeika" path="res://sprites/pvv_sunpea.png" id="3_yjeqd"]
+[ext_resource type="Texture2D" uid="uid://2novrdyskt0u" path="res://sprites/pvv_vine.png" id="4_ofah3"]
+[ext_resource type="Texture2D" uid="uid://cg1c8sq5s4mng" path="res://sprites/pvv_sunleaf.png" id="4_ql41n"]
+[ext_resource type="Texture2D" uid="uid://hhljxsuua52e" path="res://sprites/pvv_fly.png" id="5_pwjgy"]
+[ext_resource type="PackedScene" uid="uid://bv6kjkbxxvryr" path="res://scenes/cooldown_bar.tscn" id="5_xht25"]
+[ext_resource type="Texture2D" uid="uid://dy02nelf7w0h4" path="res://sprites/square.png" id="7_3gk1p"]
+[ext_resource type="Texture2D" uid="uid://ouam6ijtsl5h" path="res://sprites/pvv_tiles2.png" id="7_6uhf7"]
+[ext_resource type="Texture2D" uid="uid://d11m7u11hu3wu" path="res://sprites/pvv_tiles.png" id="10_hqyov"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eymok"]
 load_path = "res://.godot/imported/pvv_tiles.png-4db2e4440509f4c95e36c6887defee69.ctex"
@@ -48,7 +48,7 @@ texture_region_size = Vector2i(32, 32)
 0:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evor5"]
-texture = ExtResource("4_pl34n")
+texture = ExtResource("7_6uhf7")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -75,7 +75,7 @@ size = Vector2(32, 160)
 
 [node name="lawn" type="Node2D"]
 process_mode = 1
-script = ExtResource("1_xw7ya")
+script = ExtResource("1_g72vm")
 
 [node name="pausetext" type="Node2D" parent="."]
 process_mode = 3
@@ -117,7 +117,7 @@ horizontal_alignment = 1
 modulate = Color(0.981127, 0.339741, 0.391828, 1)
 position = Vector2(26, -32)
 scale = Vector2(1.25, 1.25)
-texture = ExtResource("2_cvafj")
+texture = ExtResource("5_pwjgy")
 hframes = 6
 frame = 5
 
@@ -131,7 +131,7 @@ offset_bottom = 13.0
 [node name="non_pause" type="Node2D" parent="."]
 process_mode = 3
 position = Vector2(423, 12)
-script = ExtResource("3_22hfo")
+script = ExtResource("2_egcmh")
 
 [node name="Button_pause" type="Button" parent="non_pause"]
 modulate = Color(1, 1, 1, 0)
@@ -146,7 +146,7 @@ modulate = Color(0.436107, 0.745631, 0.920544, 1)
 z_index = 1201
 position = Vector2(20.7, 13.3)
 scale = Vector2(0.757812, 0.75)
-texture = ExtResource("4_pl34n")
+texture = ExtResource("7_6uhf7")
 hframes = 4
 vframes = 4
 frame = 15
@@ -157,7 +157,7 @@ modulate = Color(0, 0, 0, 0.313726)
 z_index = 1200
 position = Vector2(-180, 125)
 scale = Vector2(68.2302, 38.8734)
-texture = ExtResource("5_bku8j")
+texture = ExtResource("7_3gk1p")
 hframes = 4
 vframes = 4
 frame = 15
@@ -171,7 +171,7 @@ modulate = Color(0, 0, 0, 0.313726)
 z_index = 1200
 position = Vector2(239, 136)
 scale = Vector2(68.2302, 38.8734)
-texture = ExtResource("5_bku8j")
+texture = ExtResource("7_3gk1p")
 hframes = 4
 vframes = 4
 frame = 15
@@ -196,7 +196,7 @@ modulate = Color(0.981127, 0.339741, 0.391828, 1)
 z_index = 1230
 position = Vector2(240, 165)
 scale = Vector2(1.25, 1.25)
-texture = ExtResource("2_cvafj")
+texture = ExtResource("5_pwjgy")
 hframes = 6
 frame = 5
 
@@ -246,7 +246,7 @@ metadata/_edit_use_anchors_ = true
 y_sort_enabled = true
 position = Vector2(80, 16)
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("6_abdi2")
+texture = ExtResource("3_yjeqd")
 hframes = 21
 vframes = 2
 frame = 8
@@ -255,7 +255,7 @@ frame = 8
 y_sort_enabled = true
 position = Vector2(112, 16)
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("6_abdi2")
+texture = ExtResource("3_yjeqd")
 hframes = 21
 vframes = 2
 frame = 29
@@ -263,14 +263,14 @@ frame = 29
 [node name="vine_seed3" type="Sprite2D" parent="seed_slots"]
 y_sort_enabled = true
 position = Vector2(144, 16)
-texture = ExtResource("7_kpahu")
+texture = ExtResource("4_ofah3")
 hframes = 5
 frame = 1
 
 [node name="sun" type="Sprite2D" parent="seed_slots"]
 position = Vector2(16, 16)
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("8_6cedn")
+texture = ExtResource("4_ql41n")
 hframes = 2
 vframes = 2
 frame = 1
@@ -280,34 +280,34 @@ modulate = Color(1, 1, 1, 0.392157)
 z_index = -10
 position = Vector2(32, 16)
 scale = Vector2(2, 1)
-texture = ExtResource("5_bku8j")
+texture = ExtResource("7_3gk1p")
 
-[node name="cooldown_bar_seed1" parent="seed_slots" instance=ExtResource("9_wqgse")]
+[node name="cooldown_bar_seed1" parent="seed_slots" instance=ExtResource("5_xht25")]
 z_index = -10
 position = Vector2(67.1, 3.1)
 scale = Vector2(0.81, 0.81)
 
-[node name="cooldown_bar_seed2" parent="seed_slots" instance=ExtResource("9_wqgse")]
+[node name="cooldown_bar_seed2" parent="seed_slots" instance=ExtResource("5_xht25")]
 z_index = -10
 position = Vector2(99.1, 3.1)
 scale = Vector2(0.81, 0.81)
 
-[node name="cooldown_bar_seed3" parent="seed_slots" instance=ExtResource("9_wqgse")]
+[node name="cooldown_bar_seed3" parent="seed_slots" instance=ExtResource("5_xht25")]
 z_index = -10
 position = Vector2(131.1, 3.1)
 scale = Vector2(0.81, 0.81)
 
-[node name="cooldown_bar_seed4" parent="seed_slots" instance=ExtResource("9_wqgse")]
+[node name="cooldown_bar_seed4" parent="seed_slots" instance=ExtResource("5_xht25")]
 z_index = -10
 position = Vector2(163.1, 3.1)
 scale = Vector2(0.81, 0.81)
 
-[node name="cooldown_bar_seed5" parent="seed_slots" instance=ExtResource("9_wqgse")]
+[node name="cooldown_bar_seed5" parent="seed_slots" instance=ExtResource("5_xht25")]
 z_index = -10
 position = Vector2(195.1, 3.1)
 scale = Vector2(0.81, 0.81)
 
-[node name="cooldown_bar_seed6" parent="seed_slots" instance=ExtResource("9_wqgse")]
+[node name="cooldown_bar_seed6" parent="seed_slots" instance=ExtResource("5_xht25")]
 z_index = -10
 position = Vector2(227.1, 3.1)
 scale = Vector2(0.81, 0.81)
@@ -324,7 +324,7 @@ position = Vector2(2.08165e-12, 14)
 [node name="leaf" type="Sprite2D" parent="graft_slots"]
 position = Vector2(16, 240)
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("8_6cedn")
+texture = ExtResource("4_ql41n")
 hframes = 2
 vframes = 2
 frame = 3
@@ -334,7 +334,7 @@ modulate = Color(1, 1, 1, 0.392157)
 z_index = -10
 position = Vector2(128, 240)
 scale = Vector2(8, 1)
-texture = ExtResource("5_bku8j")
+texture = ExtResource("7_3gk1p")
 
 [node name="graft_slots" type="TileMapLayer" parent="graft_slots"]
 z_index = -5
@@ -435,7 +435,7 @@ process_mode = 1
 z_index = 1
 y_sort_enabled = true
 position = Vector2(396, 24)
-texture = ExtResource("10_5sd7j")
+texture = ExtResource("10_hqyov")
 hframes = 4
 vframes = 8
 frame = 30
@@ -443,7 +443,7 @@ frame = 30
 [node name="compost_shadow" type="Sprite2D" parent="."]
 process_mode = 1
 position = Vector2(396, 24)
-texture = ExtResource("10_5sd7j")
+texture = ExtResource("10_hqyov")
 hframes = 4
 vframes = 8
 frame = 31
@@ -501,7 +501,7 @@ modulate = Color(0.443137, 0.8, 0.443137, 1)
 z_index = -1
 position = Vector2(22.2, 13.3)
 scale = Vector2(0.757812, 0.75)
-texture = ExtResource("4_pl34n")
+texture = ExtResource("7_6uhf7")
 hframes = 4
 vframes = 4
 frame = 14
@@ -532,7 +532,7 @@ modulate = Color(0.960784, 0.921569, 0.435294, 1)
 z_index = -2
 position = Vector2(18.2, 13.3)
 scale = Vector2(0.757812, 0.75)
-texture = ExtResource("4_pl34n")
+texture = ExtResource("7_6uhf7")
 hframes = 4
 vframes = 4
 frame = 14
@@ -542,7 +542,7 @@ modulate = Color(0.960784, 0.921569, 0.435294, 1)
 z_index = -1
 position = Vector2(26.2, 13.3)
 scale = Vector2(0.757812, 0.75)
-texture = ExtResource("4_pl34n")
+texture = ExtResource("7_6uhf7")
 hframes = 4
 vframes = 4
 frame = 14
@@ -552,6 +552,31 @@ position = Vector2(-16, 135)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dead_area"]
 shape = SubResource("RectangleShape2D_5pil5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HelpButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+tooltip_text = "Collect sun and use it to place plants on your lawn.
+Use the watering can on plants to start growing them.
+Use it twice to skip the growing process (uses plant food).
+Use the shovel to dig up and move plants.
+Use the decomposer on plants to earn plant food,
+(or let them get eaten by enemies).
+Use the watering can on fully grown plants to renew their-
+water levels + a special move (uses sun).
+Dig up fully grown plants and place them onto another-
+fully grown plant to upgrade them (uses plant food).
+Defend against the enemies coming from the right."
+text = "?"
 
 [connection signal="button_up" from="pausetext/restart/Button_restart" to="." method="_on_button_restart_button_up"]
 [connection signal="button_up" from="non_pause/Button_pause" to="non_pause" method="_on_button_pause_button_up"]
