@@ -1,0 +1,563 @@
+[gd_scene load_steps=18 format=4 uid="uid://dwc4qx4lfdgjv"]
+
+[ext_resource type="Script" uid="uid://cwu33ywsgdabt" path="res://scripts/lawn.gd" id="1_xw7ya"]
+[ext_resource type="Texture2D" uid="uid://hhljxsuua52e" path="res://sprites/lwpd_fly.png" id="2_cvafj"]
+[ext_resource type="Script" uid="uid://bwwegfqfihtvy" path="res://scripts/paused.gd" id="3_22hfo"]
+[ext_resource type="Texture2D" uid="uid://ouam6ijtsl5h" path="res://sprites/lwpd_tiles2.png" id="4_pl34n"]
+[ext_resource type="Texture2D" uid="uid://dy02nelf7w0h4" path="res://sprites/square.png" id="5_bku8j"]
+[ext_resource type="Texture2D" uid="uid://f5uxf7haeika" path="res://sprites/lwpd_sunpea.png" id="6_abdi2"]
+[ext_resource type="Texture2D" uid="uid://2novrdyskt0u" path="res://sprites/lwpd_vine.png" id="7_kpahu"]
+[ext_resource type="Texture2D" uid="uid://cg1c8sq5s4mng" path="res://sprites/lwpd_sunleaf.png" id="8_6cedn"]
+[ext_resource type="PackedScene" uid="uid://bv6kjkbxxvryr" path="res://scenes/cooldown_bar.tscn" id="9_wqgse"]
+[ext_resource type="Texture2D" uid="uid://d11m7u11hu3wu" path="res://sprites/lwpd_tiles.png" id="10_5sd7j"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eymok"]
+load_path = "res://.godot/imported/pvv_tiles.png-4db2e4440509f4c95e36c6887defee69.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_45po4"]
+texture = SubResource("CompressedTexture2D_eymok")
+texture_region_size = Vector2i(32, 32)
+3:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xw7xv"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_45po4")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6bg8c"]
+texture = SubResource("CompressedTexture2D_eymok")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evor5"]
+texture = ExtResource("4_pl34n")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8dl8b"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_6bg8c")
+sources/1 = SubResource("TileSetAtlasSource_evor5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pil5"]
+size = Vector2(32, 160)
+
+[node name="lawn" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_xw7ya")
+
+[node name="pausetext" type="Node2D" parent="."]
+process_mode = 3
+visible = false
+z_index = 1201
+position = Vector2(218, 125)
+scale = Vector2(0.8, 0.8)
+
+[node name="Label" type="Label" parent="pausetext"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="score" type="Label" parent="pausetext"]
+offset_left = -91.25
+offset_top = 35.0
+offset_right = 146.75
+offset_bottom = 58.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Current Score: "
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="pausetext"]
+offset_left = -151.25
+offset_top = 57.5
+offset_right = 207.75
+offset_bottom = 106.5
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 7
+text = "Score is the danger level! the higher the more enemy spawn rate!"
+horizontal_alignment = 1
+
+[node name="restart" type="Sprite2D" parent="pausetext"]
+modulate = Color(0.981127, 0.339741, 0.391828, 1)
+position = Vector2(26, -32)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_cvafj")
+hframes = 6
+frame = 5
+
+[node name="Button_restart" type="Button" parent="pausetext/restart"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -13.0
+offset_top = -13.0
+offset_right = 15.0
+offset_bottom = 13.0
+
+[node name="non_pause" type="Node2D" parent="."]
+process_mode = 3
+position = Vector2(423, 12)
+script = ExtResource("3_22hfo")
+
+[node name="Button_pause" type="Button" parent="non_pause"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 3.0
+offset_right = 44.0
+offset_bottom = 25.0
+focus_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="pausetile" type="Sprite2D" parent="non_pause"]
+modulate = Color(0.436107, 0.745631, 0.920544, 1)
+z_index = 1201
+position = Vector2(20.7, 13.3)
+scale = Vector2(0.757812, 0.75)
+texture = ExtResource("4_pl34n")
+hframes = 4
+vframes = 4
+frame = 15
+
+[node name="darkscreen" type="Sprite2D" parent="non_pause"]
+visible = false
+modulate = Color(0, 0, 0, 0.313726)
+z_index = 1200
+position = Vector2(-180, 125)
+scale = Vector2(68.2302, 38.8734)
+texture = ExtResource("5_bku8j")
+hframes = 4
+vframes = 4
+frame = 15
+
+[node name="dead" type="Node2D" parent="."]
+process_mode = 3
+visible = false
+
+[node name="dead_screen" type="Sprite2D" parent="dead"]
+modulate = Color(0, 0, 0, 0.313726)
+z_index = 1200
+position = Vector2(239, 136)
+scale = Vector2(68.2302, 38.8734)
+texture = ExtResource("5_bku8j")
+hframes = 4
+vframes = 4
+frame = 15
+
+[node name="Node2D" type="Node2D" parent="dead"]
+z_index = 1220
+
+[node name="Label" type="Label" parent="dead/Node2D"]
+offset_left = 53.0
+offset_top = 95.0
+offset_right = 412.0
+offset_bottom = 144.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 15
+text = "You're dead!
+Play again by clicking the replay button below!"
+horizontal_alignment = 1
+
+[node name="restart" type="Sprite2D" parent="dead"]
+modulate = Color(0.981127, 0.339741, 0.391828, 1)
+z_index = 1230
+position = Vector2(240, 165)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_cvafj")
+hframes = 6
+frame = 5
+
+[node name="Button_restart" type="Button" parent="dead/restart"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -13.0
+offset_top = -13.0
+offset_right = 15.0
+offset_bottom = 13.0
+
+[node name="seed_slots" type="Node2D" parent="."]
+
+[node name="sun_cost_seed1" type="Node2D" parent="seed_slots"]
+position = Vector2(74, 28)
+scale = Vector2(0.3, 0.3)
+
+[node name="Label" type="Label" parent="seed_slots/sun_cost_seed1"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "125"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="sun_cost_seed2" type="Node2D" parent="seed_slots"]
+position = Vector2(106, 28)
+scale = Vector2(0.3, 0.3)
+
+[node name="Label" type="Label" parent="seed_slots/sun_cost_seed2"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "75"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="sun_cost_seed3" type="Node2D" parent="seed_slots"]
+position = Vector2(138, 28)
+scale = Vector2(0.3, 0.3)
+
+[node name="Label" type="Label" parent="seed_slots/sun_cost_seed3"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "100"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="shooter_seed1" type="Sprite2D" parent="seed_slots"]
+y_sort_enabled = true
+position = Vector2(80, 16)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_abdi2")
+hframes = 21
+vframes = 2
+frame = 8
+
+[node name="bloom_seed2" type="Sprite2D" parent="seed_slots"]
+y_sort_enabled = true
+position = Vector2(112, 16)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_abdi2")
+hframes = 21
+vframes = 2
+frame = 29
+
+[node name="vine_seed3" type="Sprite2D" parent="seed_slots"]
+y_sort_enabled = true
+position = Vector2(144, 16)
+texture = ExtResource("7_kpahu")
+hframes = 5
+frame = 1
+
+[node name="sun" type="Sprite2D" parent="seed_slots"]
+position = Vector2(16, 16)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("8_6cedn")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="sun_panel" type="Sprite2D" parent="seed_slots"]
+modulate = Color(1, 1, 1, 0.392157)
+z_index = -10
+position = Vector2(32, 16)
+scale = Vector2(2, 1)
+texture = ExtResource("5_bku8j")
+
+[node name="cooldown_bar_seed1" parent="seed_slots" instance=ExtResource("9_wqgse")]
+z_index = -10
+position = Vector2(67.1, 3.1)
+scale = Vector2(0.81, 0.81)
+
+[node name="cooldown_bar_seed2" parent="seed_slots" instance=ExtResource("9_wqgse")]
+z_index = -10
+position = Vector2(99.1, 3.1)
+scale = Vector2(0.81, 0.81)
+
+[node name="cooldown_bar_seed3" parent="seed_slots" instance=ExtResource("9_wqgse")]
+z_index = -10
+position = Vector2(131.1, 3.1)
+scale = Vector2(0.81, 0.81)
+
+[node name="cooldown_bar_seed4" parent="seed_slots" instance=ExtResource("9_wqgse")]
+z_index = -10
+position = Vector2(163.1, 3.1)
+scale = Vector2(0.81, 0.81)
+
+[node name="cooldown_bar_seed5" parent="seed_slots" instance=ExtResource("9_wqgse")]
+z_index = -10
+position = Vector2(195.1, 3.1)
+scale = Vector2(0.81, 0.81)
+
+[node name="cooldown_bar_seed6" parent="seed_slots" instance=ExtResource("9_wqgse")]
+z_index = -10
+position = Vector2(227.1, 3.1)
+scale = Vector2(0.81, 0.81)
+
+[node name="seed_slots" type="TileMapLayer" parent="seed_slots"]
+z_index = -5
+use_parent_material = true
+tile_map_data = PackedByteArray("AAACAAAAAAAAAAYAAAADAAAAAAAAAAUAAAAEAAAAAAAAAAYAAAAFAAAAAAAAAAYAAAAGAAAAAAAAAAUAAAAGAAEAAAADAAQAAAAFAAEAAAABAAUAAAAEAAEAAAADAAUAAAACAAEAAAABAAUAAAADAAEAAAABAAUAAAACAP//AAADAAQAACADAP//AAADAAQAACAEAP//AAABAAUAACAFAP//AAADAAUAACAGAP//AAADAAUAACAHAAEAAAABAAUAAAAHAP//AAABAAUAACAHAAAAAAAAAAUAAAAIAAAAAAABAAYAAAAIAAEAAAADAAYAAGAIAP//AAADAAYAADABAAAAAAABAAcAAAABAAEAAAADAAUAAAABAP//AAABAAUAACAAAAAAAAAAAAcAAAAAAAEAAAADAAQAAAAAAP//AAADAAUAACD//wAAAAADAAUAAHD//wEAAAADAAYAAAD/////AAADAAYAAFA=")
+tile_set = SubResource("TileSet_xw7xv")
+
+[node name="graft_slots" type="Node2D" parent="."]
+position = Vector2(2.08165e-12, 14)
+
+[node name="leaf" type="Sprite2D" parent="graft_slots"]
+position = Vector2(16, 240)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_6cedn")
+hframes = 2
+vframes = 2
+frame = 3
+
+[node name="leaf_panel" type="Sprite2D" parent="graft_slots"]
+modulate = Color(1, 1, 1, 0.392157)
+z_index = -10
+position = Vector2(128, 240)
+scale = Vector2(8, 1)
+texture = ExtResource("5_bku8j")
+
+[node name="graft_slots" type="TileMapLayer" parent="graft_slots"]
+z_index = -5
+use_parent_material = true
+tile_map_data = PackedByteArray("AAACAAcAAAACAAUAAAADAAcAAAAAAAYAAAAEAAcAAAACAAUAAAAFAAcAAAAAAAYAAAAGAAcAAAAAAAUAAAAHAAcAAAAAAAUAAAACAAgAAAABAAUAAAADAAgAAAABAAUAAAAEAAgAAAADAAUAAAAFAAgAAAABAAUAAAAGAAgAAAADAAUAAAAHAAgAAAADAAQAAAACAAYAAAADAAQAACADAAYAAAABAAUAACAEAAYAAAABAAUAACAFAAYAAAABAAUAACAGAAYAAAABAAUAACAHAAYAAAADAAQAACABAAgAAAADAAUAAAABAAYAAAADAAQAACAIAAYAAAADAAYAADAIAAgAAAADAAYAAGAIAAcAAAABAAYAAAABAAcAAAABAAcAAAAAAAcAAAAAAAcAAAAAAAgAAAABAAUAAAAAAAYAAAABAAUAACD//wcAAAABAAYAABD//wgAAAADAAYAAAD//wYAAAADAAYAAFA=")
+tile_set = SubResource("TileSet_xw7xv")
+
+[node name="ground_tiles" type="Node2D" parent="."]
+z_index = -10
+position = Vector2(2.08165e-12, -8)
+
+[node name="dirt5" type="TileMapLayer" parent="ground_tiles"]
+z_index = -5
+use_parent_material = true
+tile_map_data = PackedByteArray("AAABAAMAAAAAAAEAAAABAAUAAAAAAAEAAAANAAUAAAAAAAEAAAANAAMAAAAAAAIAAAAMAAIAAAACAAEAAAAKAAIAAAACAAEAAAAIAAIAAAAAAAIAAAAGAAIAAAACAAEAAAAEAAIAAAAAAAEAAAACAAIAAAACAAEAAAACAAQAAAAAAAEAAAADAAMAAAAAAAIAAAADAAUAAAACAAEAAAACAAYAAAAAAAIAAAAEAAYAAAACAAEAAAAEAAQAAAACAAEAAAAFAAMAAAACAAEAAAAFAAUAAAACAAEAAAAGAAYAAAAAAAIAAAAHAAUAAAAAAAIAAAAHAAMAAAAAAAEAAAAGAAQAAAACAAEAAAAIAAQAAAACAAEAAAAJAAMAAAAAAAEAAAAJAAUAAAAAAAEAAAAIAAYAAAAAAAEAAAAKAAYAAAAAAAEAAAAKAAQAAAACAAEAAAALAAMAAAAAAAEAAAAMAAQAAAACAAEAAAALAAUAAAAAAAIAAAAMAAYAAAAAAAIAAAABAAYAAAABAAEAAAACAAUAAAABAAIAAAABAAQAAAADAAEAAAACAAMAAAADAAEAAAABAAIAAAADAAEAAAADAAIAAAABAAEAAAADAAQAAAADAAEAAAAEAAMAAAABAAEAAAADAAYAAAABAAIAAAAFAAYAAAADAAEAAAAEAAUAAAABAAIAAAAFAAQAAAADAAEAAAAFAAIAAAADAAEAAAAGAAMAAAABAAIAAAAHAAIAAAADAAEAAAAIAAMAAAABAAIAAAAHAAQAAAABAAEAAAAGAAUAAAADAAEAAAAHAAYAAAADAAEAAAAJAAYAAAADAAEAAAALAAYAAAABAAIAAAAMAAUAAAADAAEAAAANAAYAAAABAAEAAAANAAQAAAABAAIAAAAMAAMAAAADAAEAAAANAAIAAAABAAEAAAALAAIAAAADAAEAAAAJAAIAAAABAAIAAAAKAAMAAAABAAIAAAAJAAQAAAABAAIAAAAKAAUAAAABAAEAAAALAAQAAAADAAEAAAAIAAUAAAABAAEAAAAAAAEAAQAAAAAAAAABAAEAAQACAAAAAAACAAEAAQACAAAAAAADAAEAAQADAAAAAAAEAAEAAQADAAAAAAAFAAEAAQADAAAAAAAGAAEAAQAAAAAAAAAHAAEAAQADAAAAAAAIAAEAAQAAAAAAAAAJAAEAAQAAAAAAAAAKAAEAAQABAAAAAAALAAEAAQACAAAAAAAMAAEAAQAAAAAAAAANAAEAAQABAAAAAAAAAAIAAQADAAIAAAAAAAYAAQADAAIAAAAAAAcAAQAAAAAAAAABAAcAAQAAAAAAAAACAAcAAQAAAAAAAAADAAcAAQADAAAAAAAEAAcAAQADAAAAAAAFAAcAAQABAAAAAAAGAAcAAQACAAAAAAAHAAcAAQABAAAAAAAIAAcAAQAAAAAAAAAJAAcAAQABAAAAAAAKAAcAAQACAAAAAAALAAcAAQACAAAAAAAMAAcAAQAAAAAAAAANAAcAAQABAAAAAAAOAAEAAQAAAAIAAAAOAAIAAQADAAIAAAAOAAMAAQABAAIAAAAOAAQAAQACAAIAAAAOAAUAAQABAAIAAAAOAAYAAQACAAIAAAAOAAcAAQABAAIAAAAAAAMAAQAAAAIAAAAAAAUAAQABAAIAAAAAAAQAAQACAAIAAAAAAAgAAQAAAAMAAAABAAgAAQAAAAMAAAACAAgAAQAAAAMAAAADAAgAAQABAAMAAAAEAAgAAQAAAAMAAAAFAAgAAQAAAAMAAAAGAAgAAQABAAMAAAAHAAgAAQABAAMAAAAIAAgAAQAAAAMAAAAJAAgAAQABAAMAAAAKAAgAAQAAAAMAAAALAAgAAQABAAMAAAAMAAgAAQABAAMAAAANAAgAAQABAAMAAAAOAAgAAQADAAIAAAAOAAAAAQACAAIAAAANAAAAAQABAAMAAAAMAAAAAQAAAAMAAAALAAAAAQAAAAMAAAAKAAAAAQABAAMAAAAJAAAAAQABAAMAAAAIAAAAAQABAAMAAAAAAAAAAQAAAAMAAAABAAAAAQAAAAMAAAACAAAAAQAAAAMAAAADAAAAAQAAAAMAAAAEAAAAAQABAAMAAAAFAAAAAQAAAAMAAAAGAAAAAQABAAMAAAAHAAAAAQABAAMAAAA=")
+tile_set = SubResource("TileSet_8dl8b")
+
+[node name="grass4" type="TileMapLayer" parent="ground_tiles"]
+z_index = -4
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAOAAEAAAABAAAAAAAOAAcAAAABAAAAAAABAAEAAQACAAEAABAFAAcAAQACAAEAABAMAAcAAQABAAEAAAAFAAEAAQAAAAEAAAAJAAcAAQACAAEAAAANAAgAAAAAAAAAAFAMAAgAAAABAAAAAFALAAgAAAAAAAAAAFAKAAgAAAABAAAAAFAJAAgAAAAAAAAAAFAIAAgAAAABAAAAAFAHAAgAAAABAAAAAFAGAAgAAAAAAAAAAFAFAAgAAAABAAAAAFAEAAgAAAAAAAAAAFADAAgAAAAAAAAAAFACAAgAAAABAAAAAFABAAgAAAABAAAAAFAAAAgAAAAAAAAAAFAAAAAAAAABAAAAAHABAAAAAAABAAAAAHACAAAAAAABAAAAAHADAAAAAAABAAAAAHAEAAAAAAABAAAAAHAFAAAAAAABAAAAAHAGAAAAAAABAAAAAHAHAAAAAAAAAAAAAHAIAAAAAAABAAAAAHAJAAAAAAAAAAAAAHAKAAAAAAABAAAAAHALAAAAAAABAAAAAHAMAAAAAAAAAAAAAHANAAAAAAAAAAAAAHAOAAgAAAACAAAAAAAOAAAAAAACAAAAACANAAEAAQABAAEAAAAMAAEAAQACAAEAAAABAAIAAAABAAAAAAABAAMAAAABAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAABAAYAAAABAAAAAAAAAAYAAAAAAAAAABAAAAUAAAAAAAAAABAAAAQAAAAAAAAAABAAAAMAAAAAAAAAABAAAAIAAAAAAAAAABA=")
+tile_set = SubResource("TileSet_8dl8b")
+
+[node name="grass3" type="TileMapLayer" parent="ground_tiles"]
+z_index = -3
+use_parent_material = true
+tile_map_data = PackedByteArray("AAABAAIAAAABAAAAAFACAAIAAAABAAAAAFADAAIAAAABAAAAAFAEAAIAAAABAAAAAFAFAAIAAAAAAAAAAFAGAAIAAAAAAAAAAFAHAAIAAAABAAAAAFAIAAIAAAAAAAAAAFAJAAIAAAABAAAAAFAKAAIAAAABAAAAAFALAAIAAAAAAAAAAFAMAAIAAAABAAAAAFANAAIAAAABAAAAAFABAAYAAAAAAAAAAGACAAYAAAABAAAAAGADAAYAAAABAAAAAGAEAAYAAAABAAAAAGAFAAYAAAABAAAAAGAGAAYAAAABAAAAAGAHAAYAAAABAAAAAGAIAAYAAAABAAAAAGAJAAYAAAAAAAAAAGAKAAYAAAAAAAAAAGALAAYAAAAAAAAAAGAMAAYAAAABAAAAAGANAAYAAAAAAAAAAGALAAEAAQAAAAEAAAABAAEAAQABAAEAAAAFAAEAAQADAAEAAAAHAAEAAQACAAEAAAAKAAcAAQADAAEAAAAHAAcAAQABAAEAAAAFAAcAAQAAAAEAAAANAAEAAQAAAAEAAAAIAAEAAQABAAEAABAAAAYAAAAAAAAAAGAAAAIAAAABAAAAAFAAAAcAAQABAAEAABAJAAcAAQAAAAEAAAAAAAUAAAABAAAAAEAAAAMAAAABAAAAAEAAAAQAAAAAAAAAAEA=")
+tile_set = SubResource("TileSet_8dl8b")
+
+[node name="grass2" type="TileMapLayer" parent="ground_tiles"]
+z_index = -2
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAAUAAAAAAAAAACAAAAQAAAABAAAAACAAAAMAAAAAAAAAACAAAAIAAAABAAAAACAAAAYAAAABAAAAACA=")
+tile_set = SubResource("TileSet_8dl8b")
+
+[node name="grass1" type="TileMapLayer" parent="ground_tiles"]
+z_index = 1
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAAYAAAABAAAAAFAAAAUAAAAAAAAAAGAAAAQAAAAAAAAAAHAAAAMAAAABAAAAAGAAAAIAAAABAAAAAGA=")
+tile_set = SubResource("TileSet_8dl8b")
+
+[node name="highlight" type="Sprite2D" parent="."]
+process_mode = 1
+modulate = Color(1, 1, 1, 0.196078)
+position = Vector2(-100, 86)
+texture = SubResource("CompressedTexture2D_eymok")
+hframes = 4
+vframes = 8
+frame = 14
+
+[node name="slot_light" type="Sprite2D" parent="."]
+process_mode = 1
+modulate = Color(1, 1, 1, 0.196078)
+position = Vector2(-100, 125)
+texture = SubResource("CompressedTexture2D_eymok")
+hframes = 4
+vframes = 8
+frame = 14
+
+[node name="shovel" type="Sprite2D" parent="."]
+process_mode = 1
+z_index = 1
+y_sort_enabled = true
+position = Vector2(348.29, 21)
+texture = SubResource("CompressedTexture2D_eymok")
+hframes = 4
+vframes = 8
+frame = 15
+
+[node name="shovel_shadow" type="Sprite2D" parent="."]
+process_mode = 1
+position = Vector2(348.29, 21)
+texture = SubResource("CompressedTexture2D_eymok")
+hframes = 4
+vframes = 8
+frame = 16
+
+[node name="watering_can" type="Sprite2D" parent="."]
+process_mode = 1
+z_index = 1
+y_sort_enabled = true
+position = Vector2(298, 22)
+texture = SubResource("CompressedTexture2D_eymok")
+hframes = 4
+vframes = 8
+frame = 17
+
+[node name="watering_can_shadow" type="Sprite2D" parent="."]
+process_mode = 1
+position = Vector2(298, 22)
+texture = SubResource("CompressedTexture2D_eymok")
+hframes = 4
+vframes = 8
+frame = 18
+
+[node name="compost" type="Sprite2D" parent="."]
+process_mode = 1
+z_index = 1
+y_sort_enabled = true
+position = Vector2(396, 24)
+texture = ExtResource("10_5sd7j")
+hframes = 4
+vframes = 8
+frame = 30
+
+[node name="compost_shadow" type="Sprite2D" parent="."]
+process_mode = 1
+position = Vector2(396, 24)
+texture = ExtResource("10_5sd7j")
+hframes = 4
+vframes = 8
+frame = 31
+
+[node name="sun_value" type="Node2D" parent="."]
+position = Vector2(28, 7)
+scale = Vector2(0.8, 0.8)
+
+[node name="Label" type="Label" parent="sun_value"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+horizontal_alignment = 1
+
+[node name="leaf_value" type="Node2D" parent="."]
+position = Vector2(26, 245)
+scale = Vector2(0.8, 0.8)
+
+[node name="Label" type="Label" parent="leaf_value"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="sun_timer" type="Timer" parent="."]
+
+[node name="speedx1" type="Node2D" parent="."]
+position = Vector2(279, 236)
+
+[node name="Label" type="Label" parent="speedx1"]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "x1"
+horizontal_alignment = 1
+
+[node name="Button_speed1" type="Button" parent="speedx1"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 3.0
+offset_right = 35.0
+offset_bottom = 25.0
+focus_mode = 0
+toggle_mode = true
+
+[node name="speedtile" type="Sprite2D" parent="speedx1"]
+modulate = Color(0.443137, 0.8, 0.443137, 1)
+z_index = -1
+position = Vector2(22.2, 13.3)
+scale = Vector2(0.757812, 0.75)
+texture = ExtResource("4_pl34n")
+hframes = 4
+vframes = 4
+frame = 14
+
+[node name="speedx2" type="Node2D" parent="."]
+position = Vector2(324, 236)
+
+[node name="Label" type="Label" parent="speedx2"]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "x2"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button_speed2" type="Button" parent="speedx2"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 3.0
+offset_right = 35.0
+offset_bottom = 25.0
+focus_mode = 0
+toggle_mode = true
+
+[node name="speedtile" type="Sprite2D" parent="speedx2"]
+modulate = Color(0.960784, 0.921569, 0.435294, 1)
+z_index = -2
+position = Vector2(18.2, 13.3)
+scale = Vector2(0.757812, 0.75)
+texture = ExtResource("4_pl34n")
+hframes = 4
+vframes = 4
+frame = 14
+
+[node name="speedtile2" type="Sprite2D" parent="speedx2"]
+modulate = Color(0.960784, 0.921569, 0.435294, 1)
+z_index = -1
+position = Vector2(26.2, 13.3)
+scale = Vector2(0.757812, 0.75)
+texture = ExtResource("4_pl34n")
+hframes = 4
+vframes = 4
+frame = 14
+
+[node name="dead_area" type="Area2D" parent="."]
+position = Vector2(-16, 135)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dead_area"]
+shape = SubResource("RectangleShape2D_5pil5")
+
+[connection signal="button_up" from="pausetext/restart/Button_restart" to="." method="_on_button_restart_button_up"]
+[connection signal="button_up" from="non_pause/Button_pause" to="non_pause" method="_on_button_pause_button_up"]
+[connection signal="button_up" from="dead/restart/Button_restart" to="." method="_on_button_restart_button_up"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="sun_timer" to="." method="_on_sun_timer_timeout"]
+[connection signal="button_up" from="speedx1/Button_speed1" to="." method="_on_button_speed_1_button_up"]
+[connection signal="button_up" from="speedx2/Button_speed2" to="." method="_on_button_speed_2_button_up"]
+[connection signal="area_entered" from="dead_area" to="." method="_on_dead_area_area_entered"]
