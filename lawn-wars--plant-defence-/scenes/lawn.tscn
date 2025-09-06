@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cwu33ywsgdabt" path="res://scripts/lawn.gd" id="1_g72vm"]
 [ext_resource type="Script" uid="uid://bwwegfqfihtvy" path="res://scripts/paused.gd" id="2_egcmh"]
-[ext_resource type="Texture2D" uid="uid://f5uxf7haeika" path="res://sprites/pvv_sunpea.png" id="3_yjeqd"]
-[ext_resource type="Texture2D" uid="uid://2novrdyskt0u" path="res://sprites/pvv_vine.png" id="4_ofah3"]
-[ext_resource type="Texture2D" uid="uid://cg1c8sq5s4mng" path="res://sprites/pvv_sunleaf.png" id="4_ql41n"]
-[ext_resource type="Texture2D" uid="uid://hhljxsuua52e" path="res://sprites/pvv_fly.png" id="5_pwjgy"]
+[ext_resource type="Texture2D" uid="uid://f5uxf7haeika" path="res://sprites/lwpd_sunpea.png" id="3_yjeqd"]
+[ext_resource type="Texture2D" uid="uid://2novrdyskt0u" path="res://sprites/lwpd_vine.png" id="4_ofah3"]
+[ext_resource type="Texture2D" uid="uid://cg1c8sq5s4mng" path="res://sprites/lwpd_sunleaf.png" id="4_ql41n"]
+[ext_resource type="Texture2D" uid="uid://hhljxsuua52e" path="res://sprites/lwpd_fly.png" id="5_pwjgy"]
 [ext_resource type="PackedScene" uid="uid://bv6kjkbxxvryr" path="res://scenes/cooldown_bar.tscn" id="5_xht25"]
 [ext_resource type="Texture2D" uid="uid://dy02nelf7w0h4" path="res://sprites/square.png" id="7_3gk1p"]
-[ext_resource type="Texture2D" uid="uid://ouam6ijtsl5h" path="res://sprites/pvv_tiles2.png" id="7_6uhf7"]
-[ext_resource type="Texture2D" uid="uid://d11m7u11hu3wu" path="res://sprites/pvv_tiles.png" id="10_hqyov"]
+[ext_resource type="Texture2D" uid="uid://ouam6ijtsl5h" path="res://sprites/lwpd_tiles2.png" id="7_6uhf7"]
+[ext_resource type="Texture2D" uid="uid://d11m7u11hu3wu" path="res://sprites/lwpd_tiles.png" id="10_hqyov"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eymok"]
 load_path = "res://.godot/imported/pvv_tiles.png-4db2e4440509f4c95e36c6887defee69.ctex"
