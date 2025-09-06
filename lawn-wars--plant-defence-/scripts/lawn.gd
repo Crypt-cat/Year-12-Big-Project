@@ -827,12 +827,6 @@ func _on_button_speed_1_button_up():
 func _on_button_speed_2_button_up():
 	global.speed = 2
 
-func _on_button_speed_3_button_up():
-	global.speed = 3
-
-func _on_button_speed_4_button_up():
-	global.speed = 4
-
 func _on_button_restart_button_up():
 	allbutone_slot_reset(0)
 	get_tree().paused = false

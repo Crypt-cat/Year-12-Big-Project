@@ -567,14 +567,14 @@ grow_horizontal = 0
 grow_vertical = 0
 tooltip_text = "Collect sun and use it to place plants on your lawn.
 Use the watering can on plants to start growing them.
-Use it twice to skip the growing process (uses plant food).
+Use it twice to skip the growing process (costs plant food).
 Use the shovel to dig up and move plants.
 Use the decomposer on plants to earn plant food,
-(or let them get eaten by enemies).
+(or let them get eaten/run out of water to earn plant food).
 Use the watering can on fully grown plants to renew their-
-water levels + a special move (uses sun).
+water levels and to also use a special move (costs sun).
 Dig up fully grown plants and place them onto another-
-fully grown plant to upgrade them (uses plant food).
+fully grown plant to upgrade them (costs plant food).
 Defend against the enemies coming from the right."
 text = "?"
 
